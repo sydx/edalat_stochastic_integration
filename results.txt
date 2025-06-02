@@ -1,0 +1,44 @@
+Testing Domain-Theoretic Edalat Stochastic Integration
+============================================================
+
+Test 1: Wiener Integral - Quadratic Functional
+--------------------------------------------------
+Wiener integral S W_T^2 dmu_W = [0.000794, 5.047879]
+Analytical expectation E[W_T^2] = 1.0
+Contains analytical result: True
+
+Test 2: Feynman Integral - Harmonic Oscillator
+--------------------------------------------------
+Feynman integral integral e^(iS/hbar) Dgamma = [-0.951013, 0.948677]
+Note: Feynman integrals are highly oscillatory - bounds are conservative
+
+Test 3: Ito Integral - Simple Integrand
+--------------------------------------------------
+Ito integral integral W_s dW_s = [-0.564219, -0.373381]
+Analytical result (W_T^2 - T)/2 = -0.488310
+Contains analytical result: True
+
+Test 4: Stratonovich Integral - Simple Integrand
+--------------------------------------------------
+Stratonovich integral integral W_s o dW_s = [-0.085733, 0.105288]
+Analytical result W_T^2/2 = 0.011690
+Contains analytical result: True
+
+Test 5: Ito Isometry Verification
+--------------------------------------------------
+E[I_t^2] approximately 0.219773
+E[integral X_s^2 ds] approximately 0.102068
+Relative error: 53.5576%
+
+Test 6: Ito-Stratonovich Conversion Formula
+--------------------------------------------------
+Computed Stratonovich: [-0.085733, 0.105288]
+Expected from Ito: [-0.064219, 0.126619]
+Conversion error: 0.021423
+
+Test 7: Time-Dependent Integrand
+--------------------------------------------------
+Ito integral integral t*W_t dW_t = [-2.035192, 1.458095]
+Stratonovich integral integral t*W_t o dW_t = [-1.787268, 1.705719]
+Analytical Ito result: 0.214426
+Contains analytical result: True
